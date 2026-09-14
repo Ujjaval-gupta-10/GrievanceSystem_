@@ -1,8 +1,0 @@
-id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
-"CMP1002","S102","Priya Nair","A-108","9822233344","WATER","Low water pressure and leak in bathroom tap","CONFIRMED","2026-09-12T22:00:49.3395613","2026-09-12T22:00:49.34107","W2","Mrs. Rao","Block A","false","","Replaced washer in tap fixture. Water pressure restored.","5","Fixed very promptly. Tap works great now!",""
-"CMP1001","S101","Aarav Patel","C-204","9811122233","FIRE_SAFETY","Smoke detector near C-204 beeping persistently","IN_PROGRESS","2026-09-12T22:00:49.3270079","","W1","Mr. Verma","Block C","false","Technician dispatched with replacement 9V battery","","0","",""
-"CMP1007","S5001","SHASHANK SHEKHAR","B-603","7782081143","ELECTRICAL","FAN IS NOT WORKING","ASSIGNED","2026-09-13T18:34:43.6621197","","W3","Mr. Khan","Block B","false","","","0","",""
-"CMP1004","S5001","UJJAVAL GUPTA","B-013","9798487215","FIRE_SAFETY","FIRE ISSUS IN MY ROOM","ASSIGNED","2026-09-12T22:28:42.4987316","","W3","Mr. Khan","Block B","false","","","0","",""
-"CMP1003","S103","Karan Singh","B-312","9833344455","ELECTRICAL","Ceiling fan regulator stuck on maximum speed","ASSIGNED","2026-09-12T22:00:49.3430854","","W3","Mr. Khan","Block B","false","","","0","",""
-"CMP1006","S5002","jhyat","b-013","6595625444","MAINTENANCE","room me chhuhe boht h change karo","ASSIGNED","2026-09-12T23:22:01.7041384","","W3","Mr. Khan","Block B","false","","","0","",""
-"CMP1005","S5001","ankit kumar ojha","B-013","9704797048","MAINTENANCE","BLOCK TUTA H CHANGE KARO","ASSIGNED","2026-09-12T23:19:46.3967027","","W3","Mr. Khan","Block B","false","","","0","",""

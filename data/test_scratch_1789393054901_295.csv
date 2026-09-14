@@ -1,2 +1,0 @@
-id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
-"CMP1001","S30","Reopen Student","B-202","9994445555","WATER","Shower not providing hot water","REOPENED","2026-09-14T19:07:34.9051391","","W_B","Warden Beta","Block B","false","","Geyser element reset","0","","Water turned cold again after 5 minutes"
