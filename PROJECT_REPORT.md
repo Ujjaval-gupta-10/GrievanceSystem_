@@ -29,35 +29,6 @@
 
 ---
 
-## CANDIDATE DECLARATION & CERTIFICATE
-
-I hereby declare that this project report entitled **"Automated Hostel Grievance Redressal and Real-Time SLA Management System"** submitted to the *School of Computing Science and Engineering, VIT Bhopal University* in partial fulfillment of the requirements for the award of the degree of **Bachelor of Technology in Computer Science and Engineering (Artificial Intelligence and Machine Learning)** in the course **Object Oriented Programming with Java (CSE2001)**, is an authentic record of original engineering work carried out by me under the academic supervision and guidance of **Prof. Dr. Sanat Jain**.
-
-The software design, architectural modeling, source code implementations, concurrency mechanisms, flat-file persistence engine, and the 34-assertion automated test harness have been developed from first principles using standard Java Standard Edition without unauthorized reproduction or external framework dependencies.
-
-<br/>
-
-**Ujjaval Gupta**  
-Registration No: 25BAI11102  
-School of Computing Science & Engineering  
-VIT Bhopal University  
-
-**Prof. Dr. Sanat Jain**  
-Faculty Supervisor  
-School of Computing Science & Engineering  
-VIT Bhopal University  
-
----
-
-## ACKNOWLEDGEMENTS
-
-First and foremost, I express my deepest and most sincere gratitude to my course instructor and faculty supervisor, **Prof. Dr. Sanat Jain**, for their invaluable guidance, intellectual stimulation, and encouragement throughout the CSE2001 lectures and laboratory sessions. Their relentless insistence on clean, modular, and resilient Object-Oriented code, coupled with robust exception handling and rigorous multi-threaded concurrency controls, pushed this project beyond a naive single-class script into an enterprise-grade Core Java application.
-
-I also convey heartfelt thanks to the hostel wardens, estate caretakers, and security staff at VIT Bhopal University. Observing their daily administrative routines, manual register handling, and the real-world operational challenges of managing multi-story student blocks gave me the exact practical domain requirements needed to model this autonomous system.
-
-Finally, I extend my heartfelt appreciation to my parents for their unconditional encouragement, and to my roommates and laboratory peers who spent hours testing our interactive console menus, deliberately inputting edge-case room strings, and providing constructive feedback on usability and workflow ergonomics.
-
----
 
 ## ABSTRACT
 
