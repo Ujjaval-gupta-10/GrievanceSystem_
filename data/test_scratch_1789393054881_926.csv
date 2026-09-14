@@ -1,0 +1,2 @@
+id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
+"CMP1001","S20","Lifecycle Student","A-105","9990001111","ELECTRICAL","Flickering tube light","CONFIRMED","2026-09-14T19:07:34.8831278","2026-09-14T19:07:34.8881295","W_A","Warden Alpha","Block A","false","Electrician summoned with new tube","Replaced choke and LED starter","5","Fixed rapidly. Very bright now!",""

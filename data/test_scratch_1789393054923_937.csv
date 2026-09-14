@@ -1,0 +1,2 @@
+id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
+"CMP1001","S50","Emergency Student","C-101","9111111111","FIRE_SAFETY","Sparking plug point in corridor","ESCALATED","2026-09-14T19:07:34.9251263","","W_C","Warden Gamma","Block C","true","","","0","",""

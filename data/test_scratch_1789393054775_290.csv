@@ -1,0 +1,2 @@
+id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
+"CMP1001","S10","Dev Test","C-101","9998887770","ELECTRICAL","Fan regulator broken","ASSIGNED","2026-09-14T19:07:34.8581276","","W_C","Warden Gamma","Block C","false","","","0","",""

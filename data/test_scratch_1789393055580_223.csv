@@ -1,0 +1,2 @@
+id,studentId,studentName,studentRoom,studentContact,category,description,status,submittedAt,resolvedAt,wardenId,wardenName,wardenBlock,escalated,progressRemarks,resolutionNotes,rating,feedbackComment,reopenReason
+"CMP1001","S51","Security Student","A-101","9222222222","SECURITY","Lock missing from balcony door","RESOLVED","2026-09-14T19:07:35.583851","2026-09-14T19:07:35.7873192","W_A","Warden Alpha","Block A","false","","Fitted heavy duty padlock","0","",""
