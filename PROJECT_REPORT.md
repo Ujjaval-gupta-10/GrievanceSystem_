@@ -4,8 +4,10 @@ A Project Report on
 # HOSTEL GRIEVANCE REDRESSAL AND REAL-TIME SLA MANAGEMENT SYSTEM
 
 Course: Object Oriented Programming with Java - CSE2001
+
 Branch: B.Tec Computer Science in AI and ML Engineering
-Term: Fall semester 2026(3rd Semester)
+
+Term: Fall semester 2026 (3rd Semester)
 
 VIT Bhopal University Kotri Kalan, Ashta, Madhya Pradesh - 466114
 ---
@@ -13,16 +15,20 @@ VIT Bhopal University Kotri Kalan, Ashta, Madhya Pradesh - 466114
 | Parameter | Particulars |
 | :--- | :--- |
 
-| Project Title | Automated Hostel Grievance Redressal and Real-Time SLA Management System |
-| Course Code / Name | CSE2001 - Object Oriented Programming with Java |
-| Team Member | [Student Name: Ujjaval Gupta] (Reg. No: 25BAI11102) |
-| 
-|Feculty Supervisor | Prof. / Dr. [Sanat Jain], SCSE, VIT Bhopal |
+Project Title:- Automated Hostel Grievance Redressal and Real-Time SLA Management System 
 
-| Implementation Core | Java Standard Edition (JDK 17 / JDK 21) |
+Course Code / Name :- CSE2001 - Object Oriented Programming with Java 
 
-| Data Persistence | Custom Flat-File Storage Engine (`data/complaints.csv`) |
-| Concurrency Layer | Java Concurrency Utilities (`ConcurrentHashMap`, `AtomicInteger`, Daemon Threads) |
+Student Name:- Ujjaval Gupta (Reg. No: 25BAI11102) 
+ 
+Feculty Supervisor:- Prof. Dr.Sanat Jain, SCSE, VIT Bhopal 
+
+Implementation Core Java Standard Edition (JDK 17 / JDK 21) 
+
+ Data Persistence:-  Custom Flat-File Storage Engine (`data/complaints.csv`) 
+ 
+Concurrency Layer:- Java Concurrency Utilities (`ConcurrentHashMap`, `AtomicInteger`, Daemon Threads
+
 
 ## ACKNOWLEDGEMENTS
 First and foremost we would like to express our sincere gratitude to our faculty supervisor Prof. / Dr. [Sanat Jain] for guiding our line of thinking throughout our CSE2001 lectures and lab sessions. Their constant insistence on writing clean, modular Java code with proper exception handling and concurrency controls pushed us beyond a naive single-class solution into building a truly robust, multi-threaded application.
