@@ -73,7 +73,7 @@ Since this project has been developed as part of our **CSE2001 Object Oriented P
 ## 📁 Project Structure
 
 ```
-GrievanceSystem_testing/
+HOSTEL-GRIEVANCE-MANAGEMENT-SYSTEM
 ├── README.md                          # This file
 ├── statement.md                       # Problem statement & scope
 ├── PROJECT_REPORT.md                  # Full academic project report
