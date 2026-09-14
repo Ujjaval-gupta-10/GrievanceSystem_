@@ -200,7 +200,7 @@ Since this project was developed as a 2nd year mini-project during our semester,
 
 ## 👥 Contributors
 
-- **[UJJAVAL GUPTA]** - *2nd Year B.Tech CSE, VIT Bhopal University* - Reg No: `25BAI11102`
+- **UJJAVAL GUPTA** - *2nd Year B.Tech CSE, VIT Bhopal University* - Reg No: `25BAI11102`
 
 ### Acknowledgments
 Big thank you to our Java instructor DR. Sanat Jain Sir  for teaching Java OOP concepts and conducting lab work during this semester!
