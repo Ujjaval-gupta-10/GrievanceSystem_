@@ -164,42 +164,29 @@ In order to allow faculty or friends to test the system quickly without having t
 
 ---
 
-## 🖥️ Example Output
+## 🖥️ Example Output Screenshots:
 
 ### Menu:
-```text
-================================================================================
-          VIT HOSTEL GRIEVANCE REDRESSAL & SLA MANAGEMENT SYSTEM                
-================================================================================
-  1. Student Portal  - Lodge Complaints, Track Status, Confirm & Rate
-  2. Warden Portal   - View Assigned Tickets, Update Progress, Resolve
-  3. Admin Portal    - Analytics Dashboard, SLA Breaches, Wardens
-  4. View All Complaints (Global Explorer & Filters)
-  5. Run Automated Self-Diagnostics & Tests
-  6. Exit & Save
---------------------------------------------------------------------------------
-Enter your choice (1-6): 
-```
+**For Option 1:**
 
-### Complaint Record Format Preview:
-```text
-+--------------------------------------------------------------------------------+
-| Complaint ID   : CMP1002                                                      |
-| Status         : CONFIRMED                                                    |
-| Category       : WATER                                                        |
-| Description    : Low water pressure and leak in bathroom tap                  |
-| Student        : Priya Nair (ID: S102, Room: A-108, Block: Block A)           |
-| Contact        : 9822233344                                                   |
-| Assigned Warden: Mrs. Rao (Block A)                                           |
-| Submitted At   : 2026-09-12T22:00:49.339                                      |
-| Resolved At    : 2026-09-12T22:00:49.341                                      |
-| Resolution     : Replaced washer in tap fixture. Water pressure restored.     |
-| Rating         : ★★★★★ (5/5)                                                  |
-| Feedback       : Fixed very promptly. Tap works great now!                    |
-+--------------------------------------------------------------------------------+
-```
 
----
+<img width="797" height="295" alt="output1" src="https://github.com/user-attachments/assets/a4230c1e-8823-4161-a5a7-109a41ece696" />
+
+
+
+**For Option 2:**
+
+
+<img width="980" height="487" alt="output2" src="https://github.com/user-attachments/assets/5442fe7c-cdc0-4b8f-9207-ba6d0184e5fb" />
+
+
+
+**For Option 3:**
+
+<img width="890" height="507" alt="output3" src="https://github.com/user-attachments/assets/7d5e63a5-8ad9-4dd1-9c79-cda2b9127c78" />
+
+
+
 
 ## 🔮 Future Improvements / Next Steps
 
