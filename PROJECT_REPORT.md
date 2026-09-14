@@ -22,7 +22,7 @@
 | **Student Name** | Ujjaval Gupta |
 | **Registration Number** | 25BAI11102 |
 | **Faculty Supervisor** | Prof. Dr. Sanat Jain, SCSE, VIT Bhopal University |
-| **Implementation Core** | Java Standard Edition (JDK 17 / JDK 21 / JDK 26) |
+| **development Core** | Java Standard Edition (JDK 17 / JDK 21 / JDK 26) |
 | **Data Persistence Engine** | Custom Flat-File Storage Engine (`data/complaints.csv`) |
 | **Concurrency Layer** | Java Concurrency Utilities (`ConcurrentHashMap`, `AtomicInteger`, Daemon Threads) |
 | **Verification Suite** | Built-in 34-Assertion Automated Test Harness (100% Pass Rate) |
@@ -32,16 +32,16 @@
 
 ## ABSTRACT
 
-In large-scale residential university campuses such as VIT Bhopal University, thousands of students live across multiple multi-story hostel buildings (including Boys Hostel Blocks and Girls Hostel Blocks). Room fixture failures—ranging from water geyser heating element burnouts during winter months and water pressure drops to sparking electrical sockets, jammed doors, and broken LAN ports—are an inevitable daily reality. Presently, maintenance workflows rely almost exclusively on handwritten paper register logbooks kept at security reception desks. This manual procedure suffers from chronic bottlenecks, including lost or water-damaged ledgers, zero real-time tracking visibility for residents, unilateral ticket closures by technicians without actual repairs (the "fake closure loophole"), and a dangerous lack of automated prioritization for life-safety emergencies.
+At VIT Bhopal University, many students stay in different hostel blocks. Because so many students use the hostel facilities every day, maintenance problems are common. Problems such as geyser issues, low water pressure, sparking sockets, jammed doors, and broken LAN ports can happen at any time. At present, many complaints are recorded in handwritten registers kept at the security or reception desk. This manual method has several problems. Registers can be lost or damaged, students cannot easily check the status of a complaint, and a complaint may sometimes be marked as completed before the problem is actually fixed. Emergency issues also do not get any automatic priority.
 
-To resolve these critical operational deficiencies, we conceptualized, architected, and engineered the **Automated Hostel Grievance Redressal and Real-Time SLA Management System** entirely in Core Java (JDK 17/21/26). Adhering strictly to Object-Oriented principles and free of heavy external dependencies, the system automates the complaint lifecycle across three dedicated portals: **Student**, **Block Warden**, and **Chief Administrator**.
+To resolve these critical operational deficiencies, we designed and developed the **Automated Hostel Grievance Redressal and Real-Time SLA Management System** entirely in Core Java (JDK 17/21/26). The project follows OOP concepts and does not require heavy external libraries, the system automates the complaint lifecycle across three dedicated portals: **Student**, **Block Warden**, and **Chief Administrator**.
 
-### Key Technical Highlights & Deliverables
-1. **Intelligent Room Parsing & Warden Load Balancing:** Dynamic heuristic tokenizer extracts block identities from unstructured room strings (e.g., `C-204`, `Block A 108`) and streams grievances to the block warden carrying the lowest active queue.
-2. **Asynchronous SLA Auto-Escalation:** For safety-critical hazards (`FIRE_SAFETY` and `SECURITY`), an autonomous Java daemon thread (`EscalationMonitor`) tracks a strict 24-hour Service Level Agreement window, auto-escalating breached issues to the Chief Warden if unresolved, or terminating cleanly upon early repair via thread interruption.
-3. **Closed-Loop Student Verification:** Wardens cannot unilaterally close tickets; resolved grievances require resident confirmation with a 1-to-5 star evaluation and feedback, backed by an autonomous reopening mechanism if faults persist.
-4. **Zero-Dependency RFC-4180 CSV Persistence:** Custom finite-state tokenizer provides full data persistence across application restarts, safely parsing commas inside quotes and multiline descriptions without external database configuration overhead.
-5. **Automated 34-Point Verification Harness:** Built-in diagnostic test engine verifies state-machine transitions, concurrency safety across 20 parallel threads, and exception hierarchies with a 100% pass rate.
+### Main Technical Features
+1. **Room Parsing and Warden Load Balancing:** The system reads block identities from unstructured room strings (e.g., `C-204`, `Block A 108`) and assigns complaints to the block warden with the lowest number of active complaints.
+2. **Background SLA Monitoring:** For safety-critical hazards (`FIRE_SAFETY` and `SECURITY`), an Java background daemon thread (`EscalationMonitor`) checks the 24-hour SLA period, automatically sending overdue issues to the Chief Warden if unresolved, or stopping the thread when the issue is resolved early.
+3. **Closed-Loop Student Verification:** Wardens cannot fully close a ticket on their own; resolved complaints require student confirmation with a 1-to-5 star evaluation and feedback, and the complaint can be reopened if faults persist.
+4. **Zero-Dependency RFC-4180 CSV Persistence:** Custom finite-state tokenizer keeps the complaint data after restarting the program, safely parsing commas inside quotes and multiline descriptions without needing a separate database setup.
+5. **Automated 34-Point Verification Harness:** The built-in test program checks status changes, thread safety with 20 parallel threads, and custom exceptions and all tests pass.
 
 ---
 
@@ -55,39 +55,39 @@ To resolve these critical operational deficiencies, we conceptualized, architect
   - [1.5 System Scope](#15-system-scope)
 - [Chapter 2: Literature Review & Comparative Analysis](#chapter-2-literature-review--comparative-analysis)
   - [2.1 Existing Campus Complaint Systems](#21-existing-campus-complaint-systems)
-  - [2.2 Critical Gaps in Contemporary Implementations](#22-critical-gaps-in-contemporary-implementations)
+  - [2.2 Common Problems in Existing Systems](#22-critical-gaps-in-contemporary-implementations)
   - [2.3 Comparative Feature Matrix](#23-comparative-feature-matrix)
-- [Chapter 3: System Requirements & Technical Specifications](#chapter-3-system-requirements--technical-specifications)
-  - [3.1 User Personas & Permissions](#31-user-personas--permissions)
-  - [3.2 Operating Environment & Prerequisites](#32-operating-environment--prerequisites)
-  - [3.3 Functional Requirements Specifications (FR-01 to FR-12)](#33-functional-requirements-specifications-fr-01-to-fr-12)
-  - [3.4 Non-Functional Requirements Specifications](#34-non-functional-requirements-specifications)
-- [Chapter 4: System Architecture & Structural Design](#chapter-4-system-architecture--structural-design)
-  - [4.1 Layered Modular Architecture](#41-layered-modular-architecture)
+- [Chapter 3: System Requirements & Technical details](#chapter-3-system-requirements--technical-details)
+  - [3.1 Users and Their Permissions](#31-user-personas--permissions)
+  - [3.2 System Requirements](#32-operating-environment--prerequisites)
+  - [3.3 Functional Requirements (FR-01 to FR-12)](#33-functional-requirements-details-fr-01-to-fr-12)
+  - [3.4 Non-Functional Requirements](#34-non-functional-requirements-details)
+- [Chapter 4: System design & Structural Design](#chapter-4-system-design--structural-design)
+  - [4.1 System design](#41-layered-modular-design)
   - [4.2 Codebase Directory Hierarchy](#42-codebase-directory-hierarchy)
-  - [4.3 Structural Architecture Diagram](#43-structural-architecture-diagram)
+  - [4.3 Structural design Diagram](#43-structural-design-diagram)
 - [Chapter 5: Design Diagrams & System Modeling](#chapter-5-design-diagrams--system-modeling)
   - [5.1 Use Case Diagram](#51-use-case-diagram)
   - [5.2 Workflow Diagram (State Transition Machine)](#52-workflow-diagram-grievance-state-transition-machine)
   - [5.3 Sequence Diagram (Critical Grievances & SLA Lifecycle)](#53-sequence-diagram-for-safety-critical-grievances)
-  - [5.4 Class & Component Architecture Diagram](#54-class--component-architecture-diagram)
+  - [5.4 Class & Component design Diagram](#54-class--component-design-diagram)
   - [5.5 Entity-Relationship (ER) Diagram & Storage Schema](#55-entity-relationship-er-diagram--storage-schema)
-- [Chapter 6: Design Decisions & Architectural Rationale](#chapter-6-design-decisions--architectural-rationale)
-- [Chapter 7: Object-Oriented Implementation & Core Mechanics](#chapter-7-object-oriented-implementation--core-mechanics)
+- [Chapter 6: Design Decisions and Reasons](#chapter-6-design-decisions--architectural-rationale)
+- [Chapter 7: Object-Oriented development & Core Mechanics](#chapter-7-object-oriented-development--core-mechanics)
   - [7.1 Rigorous Application of the Four OOP Pillars](#71-rigorous-application-of-the-four-oop-pillars)
   - [7.2 Multi-Threading & Asynchronous SLA Management](#72-multi-threading--asynchronous-sla-management)
-  - [7.3 Thread-Safe Concurrency Architecture](#73-thread-safe-concurrency-architecture)
+  - [7.3 Thread-Safe Concurrency design](#73-thread-safe-concurrency-design)
   - [7.4 Checked Exception Hierarchy](#74-checked-exception-hierarchy)
   - [7.5 RFC-4180 CSV Storage Engine](#75-rfc-4180-csv-storage-engine)
   - [7.6 Heuristic Room Parsing & Stream-Based Load Balancing](#76-heuristic-room-parsing--stream-based-load-balancing)
 - [Chapter 8: Screenshots, Terminal Transcripts & Results](#chapter-8-screenshots-terminal-transcripts--results)
 - [Chapter 9: Testing Approach & Empirical Verification](#chapter-9-testing-approach--empirical-verification)
-  - [9.1 Testing Methodology](#91-testing-methodology)
+  - [9.1 Testing method](#91-testing-method)
   - [9.2 34-Assertion Verification Matrix](#92-34-assertion-verification-matrix)
   - [9.3 Concurrency & Stress Testing](#93-concurrency--stress-testing)
   - [9.4 Automated Test Suite Execution Transcript](#94-automated-test-suite-execution-transcript)
-- [Chapter 10: Practical Development Hurdles & Solutions](#chapter-10-practical-development-hurdles--solutions)
-- [Chapter 11: Learnings & Key Takeaways](#chapter-11-learnings--key-takeaways)
+- [Chapter 10: Problems Faced During Development and Their Solutions](#chapter-10-practical-development-hurdles--solutions)
+- [Chapter 11: What We Learned](#chapter-11-learnings--key-takeaways)
 - [Chapter 12: Limitations & Future Enhancements](#chapter-12-limitations--future-enhancements)
 - [Chapter 13: Conclusion](#chapter-13-conclusion)
 - [References](#references)
@@ -97,50 +97,50 @@ To resolve these critical operational deficiencies, we conceptualized, architect
 # CHAPTER 1: INTRODUCTION & PROBLEM CONTEXT
 
 ### 1.1 Background: Residential Life at VIT Bhopal University
-Residential campus living constitutes an indispensable pillar of the university experience at **VIT Bhopal University**. With an enrollment of thousands of engineering undergraduates residing across multi-story hostel complexes—including Boys Hostel Blocks (Block 1, Block 2, Block 3) and Girls Hostel Blocks—the physical campus infrastructure operates under relentless operational stress. Essential amenities such as high-capacity geysers, washroom plumbing fixtures, overhead ceiling fans, safety window latches, LAN ports, and electrical socket clusters run 24 hours a day throughout the semester.
+Residential campus living is an important part of student life at **VIT Bhopal University**. With many engineering students living in multi-story hostel complexes—including Boys Hostel Blocks (Block 1, Block 2, Block 3) and Girls Hostel Blocks—the hostel facilities are used continuously throughout the semester. Facilities such as high-capacity geysers, washroom plumbing fixtures, overhead ceiling fans, safety window latches, LAN ports, and electrical socket clusters are used throughout the semester.
 
-Under such heavy and continuous usage, equipment breakdowns are inevitable. A hot water geyser coil fails during the winter exam rush; an electrical socket produces sparks when an engineering workstation is plugged in; a washroom flush valve gets stuck, flooding a corridor; or a room latch malfunctions, locking students out shortly before morning lectures. How swiftly, transparently, and safely these maintenance issues are triaged and rectified directly dictates student safety, academic focus, and overall quality of residential life.
+Because these facilities are used so often, breakdowns can happen. A hot water geyser coil fails during the winter exam rush; an electrical socket produces sparks when an engineering workstation is plugged in; a washroom flush valve gets stuck, flooding a corridor; or a room latch malfunctions, locking students out shortly before morning lectures. How quickly and properly these maintenance issues are handled has a direct effect on student safety, academic focus, and overall quality of residential life.
 
 ### 1.2 The Traditional Paper Register Workflow
-In traditional hostel administrative setups, maintenance requests are recorded manually. The standard procedure comprises five linear steps:
-1. **Physical Commute:** When an issue arises, the student must walk down multiple flights of stairs to the hostel security desk or the warden's office.
-2. **Manual Log Entry:** The security guard hands over a thick paper notebook. The resident scribbles their room number, date, phone number, and a brief description across a single narrow line.
-3. **Supervisory Transcription:** Sometime during the morning, the estate supervisor or block warden flips through pages, noting room numbers onto loose paper slips to distribute to visiting technicians (electricians, plumbers, carpenters).
-4. **Technician Dispatch:** Technicians receive verbal instructions and visit wings as time permits, without structured prioritisation.
-5. **Unverified Strike-Through:** Technicians verbally inform the supervisor upon completing tasks, who then draws a rough pen stroke across the register row.
+In traditional hostel administrative setups, maintenance requests are recorded manually. The usual process has five main steps:
+1. **Going to the Office:** When an issue arises, the student must walk down multiple flights of stairs to the hostel security desk or the warden's office.
+2. **Writing the Complaint:** The security guard hands over a thick paper notebook. The resident scribbles their room number, date, phone number, and a brief description across a single narrow line.
+3. **Warden Checks the Register:** Sometime during the morning, the estate supervisor or block warden flips through pages, noting room numbers onto loose paper slips to distribute to visiting technicians (electricians, plumbers, carpenters).
+4. **Technician Assignment:** Technicians receive verbal instructions and visit wings as time permits, without structured prioritisation.
+5. **Manual Closure:** Technicians verbally inform the supervisor upon completing tasks, who then draws a rough pen stroke across the register row.
 
 ### 1.3 Core Deficiencies of the Manual Process
-While seemingly simple, this manual procedure suffers from four severe systemic bottlenecks:
-* **The Lost Ledger Problem:** Paper registers get misplaced, pages get torn or soiled from rain and beverage spills near entry desks, and hurried handwriting is frequently illegible, leading to missed repair visits.
-* **Zero Real-Time Tracking & Student Anxiety:** Once logged, students have no visibility into ticket status. Is a technician assigned? Are parts ordered? Will the repair occur today or next week? Students are forced into repeated, stressful visits to security guards.
+Although this process is simple, it has some common problems:
+* **Lost or Damaged Registers:** Paper registers get misplaced, pages get torn or soiled from rain and beverage spills near entry desks, and hurried handwriting is frequently illegible, leading to missed repair visits.
+* **No Real-Time Status:** Once logged, students have no visibility into ticket status. Is a technician assigned? Are parts ordered? Will the repair occur today or next week? Students are forced into repeated, stressful visits to security guards.
 * **The "Fake Closure" Loophole:** Maintenance personnel frequently strike through log entries to fulfill daily closure quotas without completing physical repairs. When students return from classes to find fixtures still malfunctioning, they must restart the entire manual process from scratch.
-* **Dangerous Emergency Blind Spots:** Safety-critical emergencies (e.g., beeping smoke detectors, burnt socket clusters, broken ground-floor locks) are logged on the exact same page as a creaking cupboard door. There is no automated mechanism to flag hazardous emergencies or escalate unattended safety issues to senior management.
+* **Emergency Complaints Are Not Prioritized:** Safety-critical emergencies (e.g., beeping smoke detectors, burnt socket clusters, broken ground-floor locks) are logged on the exact same page as a creaking cupboard door. There is no automated mechanism to flag hazardous emergencies or escalate unattended safety issues to senior management.
 
 ### 1.4 Project Objectives
-The primary goal of this project was to design, implement, and verify a robust, multi-threaded Java console application that replaces paper ledgers with an automated, closed-loop workflow:
-1. **Automated Ticket Routing:** Intelligently parse raw room numbers (e.g., `C-204`, `Block A 108`) and assign grievances to block wardens based on active workloads.
-2. **Autonomous SLA Enforcement:** Deploy background daemon threads to monitor critical emergency tickets and auto-escalate breached issues to senior administration if unaddressed within 24 hours.
-3. **Closed-Loop Verification:** Prevent unilateral ticket closures by requiring residents to confirm repairs with a 1-to-5 star rating and feedback, backed by a reopening mechanism if issues persist.
-4. **Zero-Dependency Flat-File Persistence:** Serialize system state to an RFC-4180 compliant CSV repository, ensuring zero database installation friction during academic evaluation.
-5. **Concurrency Safety:** Guarantee thread safety using atomic counters and concurrent collections, supporting concurrent submissions without race conditions or identifier collisions.
+The main aim of this project was to build a Java console application that makes the complaint process easier to manage instead of using paper registers:
+1. **Automated Ticket Routing:** Read different room number formats (e.g., `C-204`, `Block A 108`) and assign grievances to block wardens based on active workloads.
+2. **Automatic SLA Checking:** Deploy background daemon threads to monitor critical emergency tickets and auto-escalate breached issues to senior administration if unaddressed within 24 hours.
+3. **Student Verification:** Prevent unilateral ticket closures by requiring residents to confirm repairs with a 1-to-5 star rating and feedback, backed by a reopening mechanism if issues persist.
+4. **CSV File Storage:** Serialize system state to an RFC-4180 compliant CSV repository, making sure zero database installation friction during academic evaluation.
+5. **Thread Safety:** Guarantee thread safety using atomic counters and concurrent collections, supporting concurrent submissions without race conditions or identifier collisions.
 
 ### 1.5 System Scope
-Engineered as part of the CSE2001 (Object Oriented Programming with Java) curriculum, the software operates as an interactive console application built strictly with standard Java (JDK 17+). It models three operational roles—**Student**, **Block Warden**, and **Chief Administrator**—and includes a built-in 34-assertion automated test harness.
+Developed as part of the CSE2001 (Object Oriented Programming with Java) curriculum, the software is an interactive console application built using standard Java (JDK 17+). It models three operational roles—**Student**, **Block Warden**, and **Chief Administrator**—and includes a built-in 34-assertion automated test harness.
 
 ---
 
 # CHAPTER 2: LITERATURE REVIEW & COMPARATIVE ANALYSIS
 
 ### 2.1 Existing Campus Complaint Systems
-Across educational institutions, grievance handling generally follows three primary paradigms:
-1. **Physical Paper Logbooks:** The legacy approach. Requires zero technical infrastructure, but provides zero accountability, no analytical metrics, and no emergency response guarantees.
-2. **Enterprise ERP Modules (e.g., SAP, Oracle PeopleSoft):** Comprehensive institutional platforms that include generic helpdesk modules. These systems are often heavyweight, complex to navigate on mobile devices, and decoupled from block-specific hostel dynamics. They typically treat all tickets uniformly and lack resident verification loops.
-3. **Commercial Cloud Helpdesks (e.g., Zendesk, Freshdesk):** Feature-rich platforms that require active cloud subscriptions, continuous internet access, complex administrative configuration, and external database servers, making them impractical for local laboratory demonstrations and offline deployment.
+College complaint systems usually follow a few common approaches:
+1. **Physical Paper Logbooks:** This is the traditional approach. Requires zero technical infrastructure, but provides zero accountability, no analytical metrics, and no emergency response guarantees.
+2. **Enterprise ERP Modules (e.g., SAP, Oracle PeopleSoft):** Large institutional platforms that include generic helpdesk modules. These systems are often heavyweight, complex to navigate on mobile devices, and decoupled from block-specific hostel dynamics. They typically treat all tickets uniformly and lack resident verification loops.
+3. **Commercial Cloud Helpdesks (e.g., Zendesk, Freshdesk):** These platforms provide many features that require active cloud subscriptions, continuous internet access, complex administrative configuration, and external database servers, making them impractical for local laboratory demonstrations and offline deployment.
 
-### 2.2 Critical Gaps in Contemporary Implementations
-* **Absence of Real-Time SLA Daemon Timers:** Standard portals keep tickets open until an administrator manually updates a dropdown. They lack autonomous background threads that count down and force escalations when safety thresholds are breached.
-* **Unilateral Technician Closure:** In most systems, once a technician marks a ticket "Resolved", it is permanently closed without student verification.
-* **Deployment Fragility:** Academic student projects frequently depend on MySQL or PostgreSQL. During faculty demonstrations, these often fail due to connection timeouts, incorrect passwords, missing schemas, or incompatible JDBC driver paths.
+### 2.2 Common Problems in Existing Systems
+* **No Automatic SLA Timer:** Standard portals keep tickets open until an administrator manually updates a dropdown. They lack autonomous background threads that count down and force escalations when safety thresholds are breached.
+* **Technician Can Close a Ticket Without Student Confirmation:** In most systems, once a technician marks a ticket "Resolved", it is permanently closed without student verification.
+* **Setup Problems:** Academic student projects frequently depend on MySQL or PostgreSQL. During faculty demonstrations, these often fail due to connection timeouts, incorrect passwords, missing schemas, or incompatible JDBC driver paths.
 
 ### 2.3 Comparative Feature Matrix
 
@@ -157,20 +157,20 @@ Across educational institutions, grievance handling generally follows three prim
 
 ---
 
-# CHAPTER 3: SYSTEM REQUIREMENTS & TECHNICAL SPECIFICATIONS
+# CHAPTER 3: SYSTEM REQUIREMENTS & TECHNICAL details
 
-### 3.1 User Personas & Permissions
+### 3.1 Users and Their Permissions
 * **Hostel Resident (Student):** Can lodge grievances across 7 categories, view real-time ticket status, inspect assigned warden details, provide 1-to-5 star ratings with feedback, or reopen incomplete repairs.
 * **Block Warden:** Authenticates by block (e.g., Block A, Block B, Block C), reviews assigned tickets, logs progress updates, and submits formal resolution notes.
 * **Chief Administrator (Dean / Chief Warden):** Has system-wide visibility. Monitors campus analytics (active vs resolved counts, average satisfaction rating, category distributions), tracks escalated SLA breaches, inspects warden workloads, and registers new wardens.
 
-### 3.2 Operating Environment & Prerequisites
+### 3.2 System Requirements
 * **Operating System:** Platform-independent (Windows 10/11, macOS, Ubuntu/Debian Linux).
 * **Java Runtime Environment:** Standard Java Development Kit (JDK 17, JDK 21, JDK 26).
 * **Hardware Requirements:** Minimum 512 MB available RAM, 50 MB disk space.
 * **External Dependencies:** Absolutely none. Built purely on the standard Java Class Library (`java.util`, `java.time`, `java.io`, `java.util.concurrent`).
 
-### 3.3 Functional Requirements Specifications (FR-01 to FR-12)
+### 3.3 Functional Requirements (FR-01 to FR-12)
 
 | ID | Feature Name | Operational Specification & Business Rules | Associated Actor |
 | :--- | :--- | :--- | :--- |
@@ -187,23 +187,23 @@ Across educational institutions, grievance handling generally follows three prim
 | **FR-11** | **Grievance Reopening** | Allows students to reopen incomplete repairs with mandatory justification, resetting state to `IN_PROGRESS`. | Student |
 | **FR-12** | **Analytics Dashboard** | Computes and displays campus metrics: active vs resolved counts, average ratings, category distributions, and SLA breaches. | Chief Admin |
 
-### 3.4 Non-Functional Requirements Specifications
+### 3.4 Non-Functional Requirements
 * **Thread Safety & Race Condition Prevention:** The system maintains state integrity when handling concurrent submissions using `AtomicInteger` for collision-free IDs and `ConcurrentHashMap` for safe thread access.
-* **Persistence & Crash Resilience:** Every state change immediately flushes to disk via `StorageService`, ensuring full state recovery upon restart.
-* **Graceful Thread Termination:** SLA monitor threads are marked as daemon threads, ensuring they never prevent clean JVM shutdown when exiting the console application.
-* **Defensive Exception Architecture:** Invalid inputs or illegal state transitions throw custom checked exceptions, preventing unhandled runtime crashes.
+* **Persistence & Crash Resilience:** Every state change immediately flushes to disk via `StorageService`, making sure full state recovery upon restart.
+* **Graceful Thread Termination:** SLA monitor threads are marked as daemon threads, making sure they never prevent clean JVM shutdown when exiting the console application.
+* **Defensive Exception design:** Invalid inputs or illegal state transitions throw custom checked exceptions, preventing unhandled runtime crashes.
 * **Performance & Scalability:** Grievance creation, routing heuristics, and disk flushing execute with sub-millisecond latency.
 
 ---
 
-# CHAPTER 4: SYSTEM ARCHITECTURE & STRUCTURAL DESIGN
+# CHAPTER 4: SYSTEM design & STRUCTURAL DESIGN
 
-### 4.1 Layered Modular Architecture
-The software is organized into a clean, decoupled 4-tier layered architecture following separation of concerns:
-1. **Presentation Layer:** Encapsulates user interaction via an interactive command-line interface (`Main.java`) and provides an automated test execution harness (`GrievanceSystemTest.java`).
-2. **Business Logic & Concurrency Layer:** The heart of the application. `GrievanceSystem.java` serves as the central facade and coordinator, managing thread-safe registries and load balancing. `EscalationMonitor.java` runs asynchronous background timers for SLA enforcement, and `StorageService.java` serializes state to disk.
-3. **Domain Model & Checked Exceptions Layer:** Encapsulates core entities (`Complaint`, `Student`, `Warden`, `Admin`), type-safe enums (`ComplaintCategory`, `ComplaintStatus`), and custom checked exceptions.
-4. **Flat-File Persistence Layer:** Manages file I/O against `data/complaints.csv` using an RFC-4180 compliant tokenizer.
+### 4.1 System design
+The software is divided into four layers so that each part has a clear responsibility:
+1. **Presentation Layer:** Handles user interaction via an interactive command-line interface (`Main.java`) and provides an automated test execution harness (`GrievanceSystemTest.java`).
+2. **Business Logic & Concurrency Layer:** This is the main part of the application. `GrievanceSystem.java` serves as the central facade and coordinator, managing thread-safe registries and load balancing. `EscalationMonitor.java` runs asynchronous background timers for SLA enforcement, and `StorageService.java` serializes state to disk.
+3. **Domain Model & Checked Exceptions Layer:** Contains the main entities (`Complaint`, `Student`, `Warden`, `Admin`), type-safe enums (`ComplaintCategory`, `ComplaintStatus`), and custom checked exceptions.
+4. **Flat-File Persistence Layer:** Handles file operations for `data/complaints.csv` using an RFC-4180 compliant tokenizer.
 
 ### 4.2 Codebase Directory Hierarchy
 ```
@@ -232,7 +232,7 @@ GrievanceSystem/
     └── complaints.csv                        [15-Field flat-file persistence repository]
 ```
 
-### 4.3 Structural Architecture Diagram
+### 4.3 Structural design Diagram
 ```mermaid
 graph TD
     subgraph "1. Presentation Layer"
@@ -371,7 +371,7 @@ sequenceDiagram
     end
 ```
 
-### 5.4 Class & Component Architecture Diagram
+### 5.4 Class & Component design Diagram
 ```mermaid
 classDiagram
     class Main {
@@ -541,7 +541,7 @@ erDiagram
     }
 ```
 
-#### Data Storage Schema Specifications (`data/complaints.csv`)
+#### Data Storage Schema details (`data/complaints.csv`)
 
 | # | Field Name | Data Type | Description & Constraints |
 | :-: | :--- | :--- | :--- |
@@ -567,27 +567,27 @@ erDiagram
 
 ### 6.1 Core Java Standard Edition vs Heavy Web Frameworks
 * **Decision:** Build purely in standard Java SE (JDK 17+) without Spring Boot, JavaFX, or third-party web dependencies.
-* **Rationale:** University lab viva evaluations frequently fail when running heavy web frameworks due to dependency download timeouts, port conflicts, or missing servlet containers. Standard Java ensures instantaneous compilation and execution on any standard machine.
+* **Reason:** University lab viva evaluations frequently fail when running heavy web frameworks due to dependency download timeouts, port conflicts, or missing servlet containers. Standard Java ensures instantaneous compilation and execution on any standard machine.
 
 ### 6.2 Custom RFC-4180 CSV Storage vs Relational Database Servers
 * **Decision:** Implement a custom flat-file CSV persistence engine rather than MySQL or SQLite.
-* **Rationale:** RDBMS setups require configuring database services, managing JDBC JAR paths, and setting root credentials. By implementing an RFC-4180 compliant tokenizer in `StorageService.java`, the application achieves zero-configuration portability with complete persistence.
+* **Reason:** RDBMS setups require configuring database services, managing JDBC JAR paths, and setting root credentials. By implementing an RFC-4180 compliant tokenizer in `StorageService.java`, the application achieves zero-configuration portability with complete persistence.
 
 ### 6.3 Asynchronous Daemon Threads vs Polling Timers
 * **Decision:** Use dedicated Java daemon threads (`EscalationMonitor`) with `Thread.sleep()` and `interrupt()` rather than active timer loops or polling.
-* **Rationale:** Polling loops consume unnecessary CPU cycles. Spawning a sleeping thread consumes minimal memory and allows instantaneous, zero-latency cancellation via `interrupt()` when a warden completes repairs early. Setting `setDaemon(true)` prevents background threads from blocking JVM termination on application exit.
+* **Reason:** Polling loops consume unnecessary CPU cycles. Spawning a sleeping thread consumes minimal memory and allows instantaneous, zero-latency cancellation via `interrupt()` when a warden completes repairs early. Setting `setDaemon(true)` prevents background threads from blocking JVM termination on application exit.
 
 ### 6.4 Lock-Free CAS Counters vs Synchronized Sequence Blocks
 * **Decision:** Use `java.util.concurrent.atomic.AtomicInteger` for unique ticket identifier generation.
-* **Rationale:** `AtomicInteger.incrementAndGet()` relies on hardware-level Compare-And-Swap (CAS) instructions. This eliminates synchronized block overhead, guaranteeing unique sequential IDs even under heavy concurrent thread submissions.
+* **Reason:** `AtomicInteger.incrementAndGet()` relies on hardware-level Compare-And-Swap (CAS) instructions. This eliminates synchronized block overhead, guaranteeing unique sequential IDs even under heavy concurrent thread submissions.
 
 ### 6.5 Closed-Loop Resident Verification vs Unilateral Closure
 * **Decision:** Require student confirmation with a 1-5 star rating before a ticket reaches the closed state.
-* **Rationale:** Unilateral closures by technicians are a leading complaint in campus hostel management. Enforcing a resident verification step eliminates the "fake closure" loophole and provides actionable satisfaction metrics for university management.
+* **Reason:** Unilateral closures by technicians are a leading complaint in campus hostel management. Enforcing a resident verification step eliminates the "fake closure" loophole and provides actionable satisfaction metrics for university management.
 
 ---
 
-# CHAPTER 7: OBJECT-ORIENTED IMPLEMENTATION & CORE MECHANICS
+# CHAPTER 7: OBJECT-ORIENTED development & CORE MECHANICS
 
 ### 7.1 Rigorous Application of the Four OOP Pillars
 
@@ -669,13 +669,13 @@ public class EscalationMonitor extends Thread {
 }
 ```
 
-### 7.3 Thread-Safe Concurrency Architecture
-* **Hardware-Level CAS ID Sequence:** Using `AtomicInteger`, complaint identifiers are created via `"CMP" + idCounter.incrementAndGet()`, eliminating lock contention.
-* **Segmented Collections:** Internal complaint, warden, and monitor registries use `ConcurrentHashMap`, supporting high-throughput non-blocking concurrent reads.
-* **Synchronized State Transitions:** Domain methods on `Complaint` use the `synchronized` keyword to guard against race conditions between background daemon threads and user interactions.
+### 7.3 Thread-Safe Concurrency design
+* **Atomic ID Generation:** Using `AtomicInteger`, complaint identifiers are created via `"CMP" + idCounter.incrementAndGet()`, eliminating lock contention.
+* **Concurrent Collections:** Internal complaint, warden, and monitor registries use `ConcurrentHashMap`, supporting high-throughput non-blocking concurrent reads.
+* **Synchronized Complaint Updates:** Domain methods on `Complaint` use the `synchronized` keyword to guard against race conditions between background daemon threads and user interactions.
 
 ### 7.4 Checked Exception Hierarchy
-The application defines three custom checked exceptions inheriting from `java.lang.Exception`:
+The application has three custom checked exceptions that extend `java.lang.Exception`:
 1. `ComplaintNotFoundException`: Thrown when searching for a non-existent grievance ID.
 2. `ComplaintAlreadyResolvedException`: Thrown when attempting illegal mutations on finalized tickets.
 3. `InvalidCategoryException`: Thrown when an invalid or null category is submitted.
@@ -833,8 +833,8 @@ CMP1002,S102,"Rohan Sharma","A-108","9822233344",ELECTRICAL,"Study lamp socket s
 
 # CHAPTER 9: TESTING APPROACH & EMPIRICAL VERIFICATION
 
-### 9.1 Testing Methodology
-Rather than relying on manual keyboard input, we engineered a dedicated 34-assertion automated test harness in `GrievanceSystemTest.java`. The harness exercises state transitions, heuristic room parsing, custom exception throwing, background thread execution, and concurrent thread safety in under two seconds.
+### 9.1 Testing method
+Instead of testing everything manually, we engineered a dedicated 34-assertion automated test harness in `GrievanceSystemTest.java`. The harness exercises state transitions, heuristic room parsing, custom exception throwing, background thread execution, and concurrent thread safety in under two seconds.
 
 ### 9.2 34-Assertion Verification Matrix
 
@@ -876,7 +876,7 @@ Rather than relying on manual keyboard input, we engineered a dedicated 34-asser
 | **Suite 7** | `Loaded-ResolutionNotes` | Verifies warden resolution remarks are preserved across disk reload. | **PASS** |
 
 ### 9.3 Concurrency & Stress Testing
-To verify system stability during campus-wide incidents, the test harness launches 20 concurrent threads simulating simultaneous resident submissions:
+To check how the system behaves when many complaints are submitted together, the test harness launches 20 concurrent threads simulating simultaneous resident submissions:
 ```java
 int threadCount = 20;
 Thread[] threads = new Thread[threadCount];
@@ -899,7 +899,7 @@ for (int i = 0; i < threadCount; i++) {
 for (Thread t : threads) t.join();
 assertEqual(generatedIds.size(), threadCount, "Concurrent-Unique-IDs");
 ```
-* **Empirical Result:** All 20 threads completed without deadlocks, generating exactly 20 distinct sequential IDs (`CMP1001` through `CMP1020`) with zero collisions.
+* **Result:** All 20 threads completed without deadlocks, generating exactly 20 distinct sequential IDs (`CMP1001` through `CMP1020`) with zero collisions.
 
 ### 9.4 Automated Test Suite Execution Transcript
 ```text
@@ -952,24 +952,24 @@ TEST SUMMARY: 34 PASSED, 0 FAILED (TOTAL: 34 - 100% SUCCESS RATE)
 # CHAPTER 10: PRACTICAL DEVELOPMENT HURDLES & SOLUTIONS
 
 ### 10.1 The Quoted Comma CSV Corruption Issue
-* **Symptom:** In the initial prototype, descriptions containing commas (e.g., *"Fan regulator broken, makes humming sound"*) caused `line.split(",")` to shift subsequent fields. Timestamps were parsed as ratings, causing fatal `NumberFormatException` crashes.
-* **Solution:** We replaced naive string splitting with an RFC-4180 compliant finite-state tokenizer in `StorageService.java` that tracks quotation state (`inQuotes`) character by character and preserves escaped quotes (`""`).
+* **Problem:** In the initial prototype, descriptions containing commas (e.g., *"Fan regulator broken, makes humming sound"*) caused `line.split(",")` to shift subsequent fields. Timestamps were parsed as ratings, causing fatal `NumberFormatException` crashes.
+* **Fix:** We replaced naive string splitting with an RFC-4180 compliant finite-state tokenizer in `StorageService.java` that tracks quotation state (`inQuotes`) character by character and preserves escaped quotes (`""`).
 
 ### 10.2 Negative Complaint Identifiers from NanoTime Hashing
-* **Symptom:** Initially, ticket IDs were generated via `System.nanoTime() % 100000`. On multi-core CPUs, `nanoTime()` produced negative numbers, generating invalid IDs like `CMP-38102`.
-* **Solution:** We adopted a thread-safe `AtomicInteger(1000)`. On startup, `GrievanceSystem` scans `complaints.csv`, parses the highest existing numeric suffix, and sets the counter to `Math.max(highestId, currentCounter)`, guaranteeing strictly positive sequential IDs.
+* **Problem:** Initially, ticket IDs were generated via `System.nanoTime() % 100000`. On multi-core CPUs, `nanoTime()` produced negative numbers, generating invalid IDs like `CMP-38102`.
+* **Fix:** We adopted a thread-safe `AtomicInteger(1000)`. On startup, `GrievanceSystem` scans `complaints.csv`, parses the highest existing numeric suffix, and sets the counter to `Math.max(highestId, currentCounter)`, guaranteeing strictly positive sequential IDs.
 
 ### 10.3 Background SLA Threads Blocking JVM Shutdown
-* **Symptom:** When selecting "Exit" in the console menu, the terminal hung indefinitely. Non-daemon user threads sleeping for 24 hours kept the JVM process alive.
-* **Solution:** We called `setDaemon(true)` in the `EscalationMonitor` constructor, allowing the JVM to terminate cleanly upon application exit. Additionally, resolving a ticket triggers `cancelMonitor()`, which calls `interrupt()` to cleanly abort the thread.
+* **Problem:** When selecting "Exit" in the console menu, the terminal hung indefinitely. Non-daemon user threads sleeping for 24 hours kept the JVM process alive.
+* **Fix:** We called `setDaemon(true)` in the `EscalationMonitor` constructor, allowing the JVM to stop cleanly upon application exit. Additionally, resolving a ticket triggers `cancelMonitor()`, which calls `interrupt()` to cleanly abort the thread.
 
 ### 10.4 Warden Workload Imbalances
-* **Symptom:** A naive assignment algorithm routed all complaints in a block to the first warden in the map, leaving other wardens idle.
-* **Solution:** We implemented load balancing in `pickWarden()` using Java Streams to query active workloads and route complaints to the warden with the fewest active tickets.
+* **Problem:** A naive assignment algorithm routed all complaints in a block to the first warden in the map, leaving other wardens idle.
+* **Fix:** We implemented load balancing in `pickWarden()` using Java Streams to query active workloads and route complaints to the warden with the fewest active tickets.
 
 ### 10.5 Scanner Token Skipping in Console Menus
-* **Symptom:** Calling `scanner.nextInt()` followed by `scanner.nextLine()` caused the scanner to consume the trailing newline character, skipping user name input.
-* **Solution:** We standardized all console inputs through a helper function that reads full lines via `scanner.nextLine().trim()` and parses integers defensively using `try-catch` blocks.
+* **Problem:** Calling `scanner.nextInt()` followed by `scanner.nextLine()` caused the scanner to consume the trailing newline character, skipping user name input.
+* **Fix:** We standardized all console inputs through a helper function that reads full lines via `scanner.nextLine().trim()` and parses integers defensively using `try-catch` blocks.
 
 ---
 
@@ -978,18 +978,18 @@ TEST SUMMARY: 34 PASSED, 0 FAILED (TOTAL: 34 - 100% SUCCESS RATE)
 * **Applied Object-Oriented Design:** Translating theoretical concepts (Encapsulation, Abstraction, Polymorphism) into resilient code with synchronized state mutators and clean facade boundaries.
 * **Concurrency Pitfalls & Multi-Threading Nuances:** Managing thread interruption, memory visibility with `volatile`, atomic hardware instructions (CAS), and daemon thread lifecycles.
 * **Defensive Engineering:** Building self-contained persistence with custom RFC-4180 parsing without relying on heavy third-party libraries.
-* **Operational Empathy:** Developing software that addresses the practical, day-to-day frustrations of students, wardens, and administrative staff at VIT Bhopal.
+* **Understanding the User Problem:** Developing software that addresses the practical, day-to-day frustrations of students, wardens, and administrative staff at VIT Bhopal.
 
 ---
 
 # CHAPTER 12: LIMITATIONS & FUTURE ENHANCEMENTS
 
-### 12.1 Current System Boundaries
+### 12.1 Current Limitations
 * **Console-Only UI:** The interface runs in the terminal, lacking a web or mobile frontend.
-* **Single-Host Concurrency Ceiling:** Flat CSV storage is optimal for standalone evaluation, but unsuited for high-throughput distributed server clusters.
+* **Single-Host Concurrency Ceiling:** Flat CSV storage is suitable for standalone evaluation, but not suitable for high-throughput distributed server clusters.
 * **Local Notifications Only:** Alerts are printed to the console rather than sent via SMS or push notifications.
 
-### 12.2 Five-Phase Roadmap for Campus Deployment
+### 12.2 Possible Future Improvements
 1. **Spring Boot REST API:** Migrate the service layer to Spring Boot microservices, exposing REST endpoints for web and mobile clients.
 2. **Real-Time Messaging (Twilio / WhatsApp):** Integrate WhatsApp Business API webhooks to notify students upon technician dispatch.
 3. **Multimedia Damage Attachments:** Support image and video uploads of faulty fixtures stored on Amazon S3.
@@ -1000,9 +1000,9 @@ TEST SUMMARY: 34 PASSED, 0 FAILED (TOTAL: 34 - 100% SUCCESS RATE)
 
 # CHAPTER 13: CONCLUSION
 
-We successfully designed, built, and verified the **Hostel Grievance Redressal and Real-Time SLA Management System** for our CSE2001 course project. The application addresses the real-world frustrations of paper register logbooks at VIT Bhopal University by introducing automated block routing, dynamic warden load balancing, background SLA countdown timers for safety-critical emergencies, closed-loop student resolution ratings, and zero-dependency CSV persistence.
+We designed, developed, and tested the **Hostel Grievance Redressal and Real-Time SLA Management System** for our CSE2001 course project. The application tries to solve the problems of using paper registers at VIT Bhopal University by by adding automatic block-based assignment, basic workload balancing between wardens, background SLA timers for safety-critical emergencies, student confirmation and ratings, and simple CSV-based storage.
 
-Leveraging Core Java features such as `ConcurrentHashMap`, `AtomicInteger`, custom checked exceptions, daemon threads, and stream-based heuristics, we delivered a technically robust, thread-safe solution verified by a 34-assertion automated test harness with a 100% success rate.
+The project uses Core Java features such as `ConcurrentHashMap`, `AtomicInteger`, custom checked exceptions, daemon threads, and stream-based heuristics, we delivered a reliable, thread-safe solution verified by a 34-assertion automated test harness with all 34 tests passing.
 
 ---
 
@@ -1011,6 +1011,6 @@ Leveraging Core Java features such as `ConcurrentHashMap`, `AtomicInteger`, cust
 1. Schildt, Herbert. *Java: The Complete Reference*, 12th Edition. McGraw Hill Education, 2021.
 2. Bloch, Joshua. *Effective Java*, 3rd Edition. Addison-Wesley Professional, 2018.
 3. Goetz, Brian, et al. *Java Concurrency in Practice*. Addison-Wesley Professional, 2006.
-4. Oracle Corporation. *Java Standard Edition 17 & 21 API Documentation*: Package `java.util.concurrent` & `java.lang.Thread` Architecture. Oracle Corporation, 2023.
+4. Oracle Corporation. *Java Standard Edition 17 & 21 API Documentation*: Package `java.util.concurrent` & `java.lang.Thread` design. Oracle Corporation, 2023.
 5. Shafer, Dan. *RFC 4180: Common Format and MIME Type for Comma-Separated Values (CSV) Files*. Internet Engineering Task Force (IETF), 2005.
 6. VIT Bhopal University. *CSE2001: Object Oriented Programming with Java Course Syllabus & Laboratory Manual*. School of Computing Science and Engineering, 2025-2026.
